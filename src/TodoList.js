@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 const TodoList = (props) => (
@@ -8,6 +9,15 @@ const TodoList = (props) => (
     ))}
   </ul>
 );
+
+TodoList.propTypes = {
+  todos: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      text: PropTypes.string,
+    })
+  ).isRequired,
+};
 
 //transformar informacoes do estado em propriedads
 const mapStateToProps = (state) => ({
